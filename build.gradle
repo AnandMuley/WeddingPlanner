@@ -1,0 +1,27 @@
+group 'wepla'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'groovy'
+
+apply from: 'deployment.gradle'
+apply from: 'external-dependencies.gradle'
+
+sourceCompatibility = 1.8
+
+buildscript {
+  repositories {
+    maven {
+      url "https://jcenter.bintray.com"
+    }
+  }
+  dependencies {
+    classpath 'com.bmuschko:gradle-cargo-plugin:2.2.3'
+  }
+}
+
+task allInOne(type: GradleBuild){
+  description = 'The task will clean build undeploy deploy dropDb createDb'
+  group = 'wepla'
+  tasks = ['clean','build', 'deploy', 'dropDb', 'createDb',  'runQA']
+}

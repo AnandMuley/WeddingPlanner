@@ -1,14 +1,16 @@
 package com.wepla.rest;
 
+import com.wepla.entity.MarriageHall;
+import com.wepla.response.MarriageHallResponseDto;
 import com.wepla.rest.dto.MarriageHallDto;
 import com.wepla.service.MarriageHallService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.net.URI;
+import java.util.List;
 
 @Component
 @Path("marriagehalls")
@@ -20,8 +22,15 @@ public class MarriageHallResource {
     private MarriageHallService marriageHallService;
 
     @POST
-    public Response addMarraigeHall(MarriageHallDto marriageHallDto){
-        return Response.created(URI.create(marriageHallService.addMarriageHall(marriageHallDto))).build();
+    public ResponseEntity addMarraigeHall(MarriageHallDto marriageHallDto){
+        String marriageHallId = marriageHallService.addMarriageHall(marriageHallDto);
+        return ResponseEntity.ok(marriageHallId);
     }
 
+    @GET
+    @Path("/bylocation")
+    public ResponseEntity getNearByMe(@QueryParam("location") String location){
+        List<MarriageHallResponseDto> marriageHalls = marriageHallService.getByLocation(location);
+        return ResponseEntity.ok(marriageHalls);
+    }
 }

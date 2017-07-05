@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 import java.net.URI;
 
 @Component
-@Path("pandit")
+@Path("pandits")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class PanditResource {

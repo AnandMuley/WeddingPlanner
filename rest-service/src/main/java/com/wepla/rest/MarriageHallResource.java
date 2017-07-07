@@ -1,6 +1,5 @@
 package com.wepla.rest;
 
-import com.wepla.entity.MarriageHall;
 import com.wepla.response.MarriageHallResponseDto;
 import com.wepla.rest.dto.MarriageHallDto;
 import com.wepla.service.MarriageHallService;
@@ -22,14 +21,14 @@ public class MarriageHallResource {
     private MarriageHallService marriageHallService;
 
     @POST
-    public ResponseEntity addMarraigeHall(MarriageHallDto marriageHallDto){
+    public ResponseEntity addMarriageHall(MarriageHallDto marriageHallDto){
         String marriageHallId = marriageHallService.addMarriageHall(marriageHallDto);
         return ResponseEntity.ok(marriageHallId);
     }
 
     @GET
-    @Path("/bylocation")
-    public ResponseEntity getNearByMe(@QueryParam("location") String location){
+    @Path(value = "/location/{location}")
+    public ResponseEntity getByLocation(@PathParam("location") String location){
         List<MarriageHallResponseDto> marriageHalls = marriageHallService.getByLocation(location);
         return ResponseEntity.ok(marriageHalls);
     }

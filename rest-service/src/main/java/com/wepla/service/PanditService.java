@@ -7,6 +7,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class PanditService {
 
@@ -20,4 +23,15 @@ public class PanditService {
         panditDto.setId(pandit.getId());
     }
 
+    public List<PanditDto> getAll() {
+        return panditRepository.findAll().stream().map(pandit -> {
+            PanditDto panditDto = new PanditDto();
+            BeanUtils.copyProperties(pandit, panditDto);
+            return panditDto;
+        }).collect(Collectors.toList());
+    }
+
+    public void delete(String id) {
+        panditRepository.delete(id);
+    }
 }

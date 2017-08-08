@@ -5,10 +5,7 @@ import com.wepla.service.PanditService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URI;
@@ -26,6 +23,18 @@ public class PanditResource {
     public Response create(PanditDto panditDto) {
         panditService.create(panditDto);
         return Response.created(URI.create(panditDto.getId())).build();
+    }
+
+    @GET
+    public Response getAll() {
+        return Response.ok(panditService.getAll()).build();
+    }
+
+    @DELETE
+    @Path("{id}")
+    public Response deleteById(@PathParam("id") String id) {
+        panditService.delete(id);
+        return Response.ok().build();
     }
 
 }

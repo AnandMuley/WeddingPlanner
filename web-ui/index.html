@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="wepla">
+  <head>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.js"></script>
+    <script src="resources/js/App.js"></script>
+    <!-- CONTROLLERS -->
+    <script src="resources/js/controllers/IndexController.js"></script>
+    <script src="resources/js/controllers/LoginController.js"></script>
+    <script src="resources/js/controllers/HomeController.js"></script>
+    <script src="resources/js/controllers/AdminController.js"></script>
+    <!-- SERVICES -->
+    <script src="resources/js/services/PanditService.js"></script>
+    <!-- RESOURCES -->
+    <script src="resources/js/rest/PanditResource.js"></script>
+  </head>
+  <body>
+    <div ng-view></div>
+  </body>
+</html>

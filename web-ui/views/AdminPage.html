@@ -1,0 +1,10 @@
+<h1>Admin PAge</h1>
+
+<input ng-model="pandit.name" placeholder="Name"/>
+<input ng-model="pandit.contactNo" placeholder="Contact No"/>
+<button ng-click="add()">Submit</button>
+
+<div ng-repeat="pandit in pandits">
+    <span>{{pandit.name}}</span>
+    <span>{{pandit.contactNo}}</span>
+</div>

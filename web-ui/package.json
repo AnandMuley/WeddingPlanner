@@ -1,5 +1,5 @@
 {
-  "name": "Wepla",
+  "name": "wepla",
   "version": "0.0.1",
   "description": "A simple wedding planner app",
   "main": "index.js",
@@ -19,5 +19,10 @@
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/AnandMuley/WeddingPlanner/issues"
+  },
+  "devDependencies": {
+    "angular": "~1.6.5",
+    "angular-route": "~1.6.5",
+    "angular-resource": "~1.6.5"
   }
 }

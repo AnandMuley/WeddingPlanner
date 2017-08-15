@@ -30,6 +30,12 @@ public class PanditResource {
         return Response.ok(panditService.getAll()).build();
     }
 
+    @GET
+    @Path("{name}")
+    public Response getAll(@PathParam("name")String name) {
+        return Response.ok(panditService.findByName(name)).build();
+    }
+
     @DELETE
     @Path("{id}")
     public Response deleteById(@PathParam("id") String id) {

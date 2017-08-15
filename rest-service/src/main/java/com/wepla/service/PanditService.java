@@ -34,4 +34,12 @@ public class PanditService {
     public void delete(String id) {
         panditRepository.delete(id);
     }
+
+    public List<PanditDto> findByName(String name) {
+        return panditRepository.findByNameContainingIgnoreCase(name).stream().map(pandit -> {
+            PanditDto panditDto = new PanditDto();
+            BeanUtils.copyProperties(pandit, panditDto);
+            return panditDto;
+        }).collect(Collectors.toList());
+    }
 }

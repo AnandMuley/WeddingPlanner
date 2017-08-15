@@ -7,7 +7,12 @@ app.controller('AdminController',['$scope','Pandit', '$resource',
     $scope.add = function(){
         $scope.pandit.$save(function(pandit,responseHeaders){
             $scope.pandits = Pandit.query();
+            $scope.pandit = new Pandit();
         });
+    }
+
+    $scope.search = function(){
+        $scope.pandits = Pandit.search({name:$scope.nameToSearch});
     }
 
 }]);

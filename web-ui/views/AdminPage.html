@@ -4,6 +4,12 @@
 <input ng-model="pandit.contactNo" placeholder="Contact No"/>
 <button ng-click="add()">Submit</button>
 
+<br/><br/>
+<div>
+    <input placeholder="Enter name" ng-model="nameToSearch"/>
+    <button ng-click="search()">Search</button>
+</div>
+
 <div ng-repeat="pandit in pandits">
     <span>{{pandit.name}}</span>
     <span>{{pandit.contactNo}}</span>

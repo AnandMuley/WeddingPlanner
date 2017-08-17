@@ -11,6 +11,9 @@ app.config(['$routeProvider',function($routeProvider){
     }).when('/admin',{
         templateUrl : 'views/AdminPage.html',
         controller : 'AdminController'
+    }).when('/pandit',{
+        templateUrl : 'views/PanditRegistration.html',
+        controller : 'PanditRegistrationController'
     });
 
 }]);

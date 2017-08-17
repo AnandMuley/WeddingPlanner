@@ -1,5 +1,6 @@
 package com.wepla.rest;
 
+import com.wepla.exceptions.NoDataFoundException;
 import com.wepla.rest.dto.PanditDto;
 import com.wepla.service.PanditService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +27,31 @@ public class PanditResource {
     }
 
     @GET
-    public Response getAll() {
+    public Response search() {
         return Response.ok(panditService.getAll()).build();
     }
 
     @GET
-    @Path("{name}")
-    public Response getAll(@PathParam("name")String name) {
+    @Path(value = "{id}")
+    public Response findById(@PathParam("id") String id) {
+        try {
+            return Response.ok(panditService.find(id)).build();
+        } catch (NoDataFoundException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    @PUT
+    @Path(value = "{id}")
+    public Response update(@PathParam("id") String id, PanditDto panditDto) {
+        panditDto.setId(id);
+        panditService.update(panditDto);
+        return Response.noContent().build();
+    }
+
+    @GET
+    @Path(value = "search")
+    public Response search(@QueryParam("name") String name) {
         return Response.ok(panditService.findByName(name)).build();
     }
 

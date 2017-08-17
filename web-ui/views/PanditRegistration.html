@@ -1,0 +1,32 @@
+<h2>Registration</h2>
+<div>
+    <input ng-model="pandit.name" placeholder="Name"/>
+</div>
+<div>
+    <input ng-model="pandit.contactNo" placeholder="Contact No"/>
+</div>
+<div>
+    <input ng-model="pandit.emailId" placeholder="EmailId"/>
+</div>
+<div>
+    <textarea rows="3" cols="20" ng-model="pandit.addressDto.addressLine1" placeholder="Address Line 1"></textarea>
+</div>
+<div>
+    <select ng-model="pandit.addressDto.state" placeholder="State">
+        <option value="Select">Select</option>
+        <option value="Maharashtra">Maharashtra</option>
+    </select>
+</div>
+<div>
+    <select ng-model="pandit.addressDto.city" placeholder="City">
+        <option value="Select">Select</option>
+        <option value="Pune">Pune</option>
+    </select>
+</div>
+<div>
+    <button ng-click="add()">Register</button>
+    <button ng-click="update()">Update</button>
+</div>
+<div>
+    <div ng-if="message != null">{{message}}</div>
+</div>

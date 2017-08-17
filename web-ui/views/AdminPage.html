@@ -1,16 +1,14 @@
 <h1>Admin PAge</h1>
 
-<input ng-model="pandit.name" placeholder="Name"/>
-<input ng-model="pandit.contactNo" placeholder="Contact No"/>
-<button ng-click="add()">Submit</button>
-
-<br/><br/>
 <div>
     <input placeholder="Enter name" ng-model="nameToSearch"/>
     <button ng-click="search()">Search</button>
 </div>
 
-<div ng-repeat="pandit in pandits">
-    <span>{{pandit.name}}</span>
-    <span>{{pandit.contactNo}}</span>
+<div style="border:solid 1px;width:250px" ng-repeat="pandit in pandits">
+    <div>{{pandit.id}}</div>
+    <div>{{pandit.name}}</div>
+    <div>{{pandit.contactNo}}</div>
+    <div>{{pandit.emailId}}</div>
+    <div>{{pandit.address}}</div>
 </div>

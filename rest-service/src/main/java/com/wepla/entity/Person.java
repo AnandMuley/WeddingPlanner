@@ -4,10 +4,17 @@ public class Person {
 
     protected String name;
     protected String contactNo;
+    protected String emailId;
+    protected Address address;
+
+    public Person() {
+        address = new Address();
+    }
 
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -20,11 +27,30 @@ public class Person {
         this.contactNo = contactNo;
     }
 
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                "contactNo='" + contactNo + '\'' +
-                '}';
+        final StringBuilder sb = new StringBuilder("Person{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", contactNo='").append(contactNo).append('\'');
+        sb.append(", emailId='").append(emailId).append('\'');
+        sb.append(", address=").append(address);
+        sb.append('}');
+        return sb.toString();
     }
 }

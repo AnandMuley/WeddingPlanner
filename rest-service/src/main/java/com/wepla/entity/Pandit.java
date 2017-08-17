@@ -19,8 +19,13 @@ public class Pandit extends Person {
 
     @Override
     public String toString() {
-        return "Pandit{" +
-                "id='" + id + '\'' +
-                '}';
+        final StringBuilder sb = new StringBuilder("Pandit{");
+        sb.append("id='").append(id).append('\'');
+        sb.append("name='").append(name).append('\'');
+        sb.append("contactNo='").append(contactNo).append('\'');
+        sb.append("emailId='").append(emailId).append('\'');
+        sb.append("address='").append(address).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }
